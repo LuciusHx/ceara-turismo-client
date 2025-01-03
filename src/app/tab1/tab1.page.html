@@ -7,38 +7,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <img alt="Praia de Iracema" src="../../assets/images/fortaleza iracema.jpg" />
+  <ion-card *ngFor="let card of cards">
+    <img [alt]="card.alt" [src]="card.src" />
+
     <ion-card-header>
-      <ion-card-title>Iracema</ion-card-title>
-      <ion-card-subtitle>Fortaleza - Ceará </ion-card-subtitle>
+      <div class="tiltle-visitable" *ngIf="card.visitable; else closed">
+        <ion-card-title>{{ card.title }}</ion-card-title>
+        <ion-badge color="success">aberto</ion-badge>
+      </div>
+      <ng-template #closed>
+        <div>
+          <ion-card-title>{{ card.title }}</ion-card-title>
+          <ion-badge color="danger">fechado</ion-badge>
+        </div>
+      </ng-template>
+      <ion-card-subtitle>{{ card.city }}</ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content class="ion-text-justify">
-      A Praia de Iracema é uma praia de bairro homônimo localizados na zona central do município de Fortaleza, no estado do Ceará. Seu nome vem da personagem Iracema, do escritor cearense José de Alencar. 
+      {{ card.about }}
+      
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
-    <img alt="Castelão" src="../../assets/images/castelao.jpg" />
-    <ion-card-header>
-      <ion-card-title>Castelão</ion-card-title>
-      <ion-card-subtitle>Fortaleza - Ceará </ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content class="ion-text-justify">
-      O Estádio Governador Plácido Castelo, também conhecido como Arena Castelão, é um estádio de futebol brasileiro localizado em Fortaleza, inaugurado em 1973. Sua capacidade atual é de até 63.903 espectadores.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img alt="Parque Nacional de Ubajara" src="../../assets/images/parque nacional ubj.jpg" />
-    <ion-card-header>
-      <ion-card-title>Parque Nacional de Ubajara</ion-card-title>
-      <ion-card-subtitle>Ubajara - Ceará </ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content class="ion-text-justify">
-      O Parque Nacional de Ubajara é Unidade de Conservação de Proteção Integral localizada na região da Serra da Ibiapaba, no estado do Ceará, Brasil. A grande atração do Parque Nacional de Ubajara é a Gruta de Ubajara.
-    </ion-card-content>
-  </ion-card>
 </ion-content>
