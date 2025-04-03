@@ -8,16 +8,16 @@
 
 <ion-content [fullscreen]="true">
   <ion-card *ngFor="let card of cards">
-    <img [alt]="card.alt" [src]="card.src" />
+    <ion-img  [src]="card.foto" />
 
     <ion-card-header>
       <div class="tiltle-visitable" *ngIf="card.visitable; else closed">
-        <ion-card-title>{{ card.title }}</ion-card-title>
+        <ion-card-title>{{ card.name}}</ion-card-title>
         <ion-badge color="success">aberto</ion-badge>
       </div>
       <ng-template #closed>
         <div>
-          <ion-card-title>{{ card.title }}</ion-card-title>
+          <ion-card-title>{{ card.name }}</ion-card-title>
           <ion-badge color="danger">fechado</ion-badge>
         </div>
       </ng-template>

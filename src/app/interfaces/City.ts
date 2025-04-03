@@ -1,7 +1,6 @@
 export interface City {
-    alt: string;
-    src: string;
-    title: string;
+    foto: string;
+    name: string;
     city: string;
     about: string;
     visitable: boolean;
