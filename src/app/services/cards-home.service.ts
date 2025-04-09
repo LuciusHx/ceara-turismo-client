@@ -14,7 +14,6 @@ export class CardsHomeService {
 
   private url = "http://127.0.0.1:8000/"
 
-
   getPlaces(): Observable<Places[]> {
     return this.httpClient.get<Places[]>(`${this.url}/places/`).pipe(
       map((places: Places[]) => {
