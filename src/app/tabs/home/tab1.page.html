@@ -12,7 +12,7 @@
 
     <ion-card-header>
       <div class="tiltle-visitable" *ngIf="card.visitable; else closed">
-        <ion-card-title>{{ card.name}}</ion-card-title>
+        <ion-card-title>{{ card.name }}</ion-card-title>
         <ion-badge color="success">aberto</ion-badge>
       </div>
       <ng-template #closed>
@@ -31,7 +31,7 @@
   
   
   <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="authService.isLoggedIn()">
-    <ion-fab-button >
+    <ion-fab-button href="/crate-place">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

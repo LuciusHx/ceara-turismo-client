@@ -1,0 +1,89 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-title size="large" class="ion-text-center ion-padding-bottom">
+        Ceará Turismo
+      </ion-title>
+      
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- name -->
+        <ion-item lines="full" class="ion-margin-bottom">
+          <ion-label position="floating">Nome:</ion-label>
+          <ion-input 
+            fill="outline"
+            type="text" 
+            formControlName="name"
+            clearInput>
+          </ion-input>
+        </ion-item>
+        <ion-note *ngIf="form.get('name')?.touched" color="danger" class="ion-padding-start">
+          <span *ngIf="form.get('name')?.hasError('required')">
+            Campo obrigatório
+          </span>
+          <span *ngIf="form.get('name')?.hasError('name') && !form.get('name')?.hasError('required')">
+            E-mail inválido
+          </span>
+        </ion-note>
+
+        <!-- Campo cidade -->
+        <ion-item lines="full" class="ion-margin-bottom">
+          <ion-label position="floating">Cidade</ion-label>
+          <ion-input 
+            fill="outline"
+            type="text" 
+            formControlName="city"
+            clearInput>
+            <ion-button fill="clear" slot="end" [disabled]="!form.get('city')?.value">
+            </ion-button>
+          </ion-input>
+        </ion-item>
+        <ion-note *ngIf="form.get('city')?.touched" color="danger" class="ion-padding-start">
+          <span *ngIf="form.get('city')?.hasError('required')">
+            Campo obrigatório
+          </span>
+          <span *ngIf="form.get('city')?.hasError('minlength') && !form.get('city')?.hasError('required')">
+            Mínimo 8 caracteres
+          </span>
+        </ion-note>
+
+        <!-- Campo Sobre -->
+        <ion-item lines="full" class="ion-margin-bottom">
+          <ion-label position="floating">Sobre</ion-label>
+          <ion-input 
+            fill="outline"
+            type="text" 
+            formControlName="about"
+            clearInput>
+            <ion-button fill="clear" slot="end" [disabled]="!form.get('about')?.value">
+            </ion-button>
+          </ion-input>
+        </ion-item>
+        <ion-note *ngIf="form.get('about')?.touched" color="danger" class="ion-padding-start">
+          <span *ngIf="form.get('about')?.hasError('required')">
+            Campo obrigatório
+          </span>
+          <span *ngIf="form.get('about')?.hasError('minlength') && !form.get('about')?.hasError('required')">
+            Mínimo 8 caracteres
+          </span>
+        </ion-note>
+
+        <!-- Campo Visitável -->
+         <ion-item>
+          <ion-label>Visitável</ion-label>
+          <ion-toggle [checked]="true"></ion-toggle>
+         </ion-item>
+
+        <!-- Botão Submit -->
+        <ion-button 
+          expand="block" 
+          type="submit" 
+          [disabled]="form.invalid"
+          class="ion-margin-top"
+          [strong]="true">
+          Cadastrar
+        </ion-button>
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

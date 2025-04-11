@@ -4,7 +4,6 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginFormGroup } from 'src/app/forms/Login';
 import { AuthService } from 'src/app/services/auth-guard.service';
-import { IonContent } from '@ionic/angular/standalone';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
